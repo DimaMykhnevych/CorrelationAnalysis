@@ -35,17 +35,20 @@ def calculate_t():
     r = calculate_correlation()
     df = data["Length1"].count() * 2 - 2
     print("Степени свободы: ", df)
-    t = (r * (df ** 0.5))//(1 - r**2)
+    t = (r * (df ** 0.5)) / (1 - r**2)
     return t
 
 
 def main():
     corel = calculate_correlation()
     print("Correlation coefficient: ", corel)
+    print('Так как коэффициент корреляции > 0.9, то связь между данными очень сильная.')
     t = calculate_t()
     print("t: ", t)
-    print(t, ">1.968. Нулевую теорию отбрасываем")
-    show_plot()
+    print(t, "> 1.968. Нулевую теорию отбрасываем => линейный коэффициент корреляции значимый.")
+    print('Вывод: гипотеза про наличие линейной корреляционной связи между '
+          'весом рыби и ее длинной не протеворечит данным анализа.')
+    # show_plot()
 
 
 if __name__ == "__main__":
